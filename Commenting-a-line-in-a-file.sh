@@ -3,9 +3,11 @@
 #Date: 11th Sep, 2018.
 #Script is Jenkins Ready.
 
+##In this script we are finding a pattern that has 'list_new' in the file. And commenting it.
+
 cron_file='/tmp/test.txt';
-comment_search=$(grep -E '#.*fe_instance_list_new' "$cron_file");
-cron_search=`grep "fe_instance_list_new" "$cron_file"`;
+comment_search=$(grep -E '#.*list_new' "$cron_file");
+cron_search=`grep "list_new" "$cron_file"`;
 echo -e "\n[INFO]: Your crontab file name is: $cron_file"
 
 if [ "$comment_search" == "$cron_search" ]; then
@@ -14,10 +16,10 @@ echo -e "$cron_search\n";
 exit 0;
 else
 echo "[INFO]: Commenting the Cron line..." 
-sed -i /fe_instance_list_new.sh/s/^/#/ "$cron_file"
+sed -i /list_new.sh/s/^/#/ "$cron_file"
   if [ $? == 0 ]; then
     echo -e "[INFO]: Done. \n[INFO]: See the output below:\n"
-    grep "fe_instance_list_new" "$cron_file"
+    grep "list_new" "$cron_file"
     echo -e "\n"
     exit 0;
   else
