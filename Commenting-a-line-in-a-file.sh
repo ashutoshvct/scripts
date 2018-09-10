@@ -1,6 +1,7 @@
 #!/bin/bash
 #Written by Ashutosh.
 #Date: 11th Sep, 2018.
+#Script is Jenkins Ready.
 
 cron_file='/tmp/test.txt';
 comment_search=$(grep -E '#.*fe_instance_list_new' "$cron_file");
